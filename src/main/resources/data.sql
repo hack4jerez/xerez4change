@@ -23,3 +23,7 @@ INSERT INTO vertices_rotonda (id, name, rotonda_id) VALUES (14, 'Vertice 4.2', 4
 INSERT INTO vertices_rotonda (id, name, rotonda_id) VALUES (15, 'Vertice 4.3', 4);
 INSERT INTO vertices_rotonda (id, name, rotonda_id) VALUES (16, 'Vertice 4.4', 4);
 
+INSERT INTO aristas (id, origen_id, destino_id, distancia) VALUES (1, 4, 6, 10);
+INSERT INTO aristas (id, origen_id, destino_id, distancia) VALUES (2, 5, 11, 100);
+INSERT INTO aristas (id, origen_id, destino_id, distancia) VALUES (3, 10, 16, 200);
+INSERT INTO aristas (id, origen_id, destino_id, distancia) VALUES (4, 15, 1, 300);
