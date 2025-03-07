@@ -1,6 +1,8 @@
 package com.xerez4change.carretilla.arista;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.xerez4change.carretilla.grafo.Grafo;
 import com.xerez4change.carretilla.model.BaseEntity;
 import com.xerez4change.carretilla.rotondaVertice.VerticeRotonda;
 
@@ -16,24 +18,29 @@ public class Arista extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "origen_id", nullable = false)
-    @JsonBackReference("origen")
+    @JsonIgnoreProperties({"aristasSalientes", "aristasEntrantes"}) 
     private VerticeRotonda origen;
 
     @ManyToOne
     @JoinColumn(name = "destino_id", nullable = false)
-    @JsonBackReference("destino")
+    @JsonIgnoreProperties({"aristasSalientes", "aristasEntrantes"}) 
     private VerticeRotonda destino;
 
+    @ManyToOne
+    @JoinColumn(name = "grafo_id")  
+    @JsonBackReference  // Relación con Grafo
+    private Grafo grafo;
 
     private Double distancia;
 
     public Arista() {
     }
 
-    public Arista(VerticeRotonda origen, VerticeRotonda destino, Double distancia) {
+    public Arista(VerticeRotonda origen, VerticeRotonda destino, Double distancia, Grafo grafo) {
         this.origen = origen;
         this.destino = destino;
         this.distancia = distancia;
+        this.grafo = grafo;
     }
 
     
